@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyClock</string>
+    <string name="hour1">Hour11</string>
+    <string name="hour2">Hour12</string>
+    <string name="colon">Colon</string>
+    <string name="min1">Minute1</string>
+    <string name="min2">Minute2</string>
+</resources>
