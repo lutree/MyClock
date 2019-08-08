@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
                 while (true) {
                     try {
                         drawTime();
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                     } catch (InterruptedException e) {
                         System.out.println(e);
                     }
