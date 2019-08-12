@@ -6,15 +6,20 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends Activity {
-    ImageView hour1;
-    ImageView hour2;
-    ImageView min1;
-    ImageView min2;
-    ImageView colon;
+    @BindView(R.id.hour1) ImageView hour1;
+    @BindView(R.id.hour2) ImageView hour2;
+    @BindView(R.id.min1) ImageView min1;
+    @BindView(R.id.min2) ImageView min2;
+    @BindView(R.id.colon) ImageView colon;
 
     TypedArray typedArray;
 
@@ -32,14 +37,9 @@ public class MainActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         typedArray = getResources().obtainTypedArray(R.array.numbers);
-
-        hour1 = findViewById(R.id.hour1);
-        hour2 = findViewById(R.id.hour2);
-        colon = findViewById(R.id.colon);
-        min1 = findViewById(R.id.min1);
-        min2 = findViewById(R.id.min2);
 
         runTime();
 
@@ -48,6 +48,8 @@ public class MainActivity extends Activity {
     public void drawTime() {
 
         time = sdf.format(new Date(System.currentTimeMillis()));
+
+//        Glide.with(getApplicationContext()).load(R.drawable.seven).into(hour1);
 
         hour1.setImageResource(typedArray.getResourceId(Integer.parseInt(time.substring(0, 1)), -1));
         hour2.setImageResource(typedArray.getResourceId(Integer.parseInt(time.substring(1, 2)), -1));
